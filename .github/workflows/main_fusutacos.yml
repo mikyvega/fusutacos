@@ -56,5 +56,5 @@ jobs:
         with:
           app-name: 'fusutacos'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D84AEC2E0ABD405690AD484B39B0AB61 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BAFD61E4FFC0400DBF28E75AA5CB21C5 }}
           package: .
