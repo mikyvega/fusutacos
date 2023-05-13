@@ -20,7 +20,7 @@ if (mysqli_connect_errno())
 }
 echo "Vamos al query ";
 $escrito = htmlspecialchars($_POST['comentario']);
-if ($stmt = mysqli_prepare($conn, "INSERT INTO comentarios (Comentario) VALUES ('$escrito')"))
+if ($stmt = mysqli_prepare($conn, "INSERT INTO comentarios (Comentario) VALUES (?)"))
 {
     echo "Escribiendo... ";
     mysqli_stmt_bind_param($stmt, 'ssd', mixed &$escrito);
