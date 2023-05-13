@@ -37,7 +37,13 @@
 		</div>
 	</form><!-- // End form -->
 	</div><!-- // End #container -->
-
+	<script>
+		const urlParams = new URLSearchParams(window.location.search);
+		const myParam = urlParams.get('save');
+		if (myParam === '1'){
+			alert('La informacion se envio con exito');
+		}
+	</script>
 </body>
 
 </html>
