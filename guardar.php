@@ -9,8 +9,7 @@ echo "Declaraciones de variables";
 //Establishes the connection
 $conn = mysqli_init();
 echo "Inicializacion";
-mysqli_ssl_set($con,NULL,NULL, "/home/site/wwwroot/DigiCertGlobalRootG2.crt.pem", NULL, NULL);
-mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, MYSQLI_CLIENT_SSL);
+mysqli_real_connect($conn, $host, $username, $password, $db_name);
 echo "Connecion Correcta";
 if (mysqli_connect_errno($conn)) {
     echo 'Failed to connect to MySQL: '.mysqli_connect_error();
