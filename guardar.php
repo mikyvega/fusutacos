@@ -20,13 +20,19 @@ if (mysqli_connect_errno())
 }
 echo "Vamos al query ";
 $escrito = htmlspecialchars($_POST['comentario']);
-if ($stmt = mysqli_prepare($conn, "INSERT INTO comentarios (Comentario) VALUES ('Hola')"))
+//if ($stmt = mysqli_prepare($conn, "INSERT INTO comentarios (Comentario) VALUES ('Hola')"))
+//{
+//    echo "Escribiendo... ";
+//    mysqli_stmt_bind_param($stmt, 'ssd', 'Hola');
+//    mysqli_stmt_execute($stmt);
+//    mysqli_stmt_close($stmt);
+//    echo "Saliendo... ";
+//}
+$sql = "INSERT INTO comentarios (Comentario) VALUES ('$escrito')"
+if(mysqli_prepare($conn,$sql))
 {
-    echo "Escribiendo... ";
-    mysqli_stmt_bind_param($stmt, 'ssd', 'Hola');
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_close($stmt);
-    echo "Saliendo... ";
+    echo "Guardado en base ";
+
 }
 echo "Escribido";
 
