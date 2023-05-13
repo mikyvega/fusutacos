@@ -29,6 +29,7 @@ if ($stmt = mysqli_prepare($conn, "INSERT INTO comentarios (Comentario) VALUES (
     mysqli_stmt_execute($stmt);
     printf("Insert: Affected %d rows\n", mysqli_stmt_affected_rows($stmt));
     mysqli_stmt_close($stmt);
+    echo "Saliendo... ";
 }
 echo "Escribido";
 mysqli_close($conn);
