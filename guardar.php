@@ -18,28 +18,15 @@ if (mysqli_connect_errno())
 {
     die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
-echo "Vamos al query ";
 $escrito = htmlspecialchars($_POST['comentario']);
-printf("Reading data from table: \n");
-$res = mysqli_query($conn, 'SELECT * FROM comentarios');
-while ($row = mysqli_fetch_assoc($res))
- {
-    var_dump($row);
- }
- echo "leida la tabla";
 if ($stmt = mysqli_prepare($conn, "INSERT INTO comentarios (Comentario) VALUES (?)"))
 {
-   echo "Escribiendo... ";
    mysqli_stmt_bind_param($stmt, 's', $escrito);
-   echo "Paso 1 complete";
    mysqli_stmt_execute($stmt);
-   echo "Paso 2 complete";
    mysqli_stmt_close($stmt);
-   echo "Paso 3 complete";
-   echo "Saliendo... ";
 }
-
-echo "Escribido";
-
 mysqli_close($conn);
+
+header('Location: index.html?save=1');
+die();
 ?>
