@@ -18,5 +18,14 @@ if (mysqli_connect_errno())
 {
     die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
+echo htmlspecialchars($_POST['comentario']);
+echo "Vamos al query";
+if ($stmt = mysqli_prepare($conn, "INSERT INTO comentarios (Comentario) VALUES (?)")) {
+    echo "Aqui esta en el prepare";
+    mysqli_stmt_bind_param($stmt, 'ssd', "Probando la informacion");
+    mysqli_stmt_execute($stmt);
+    printf("Insert: Affected %d rows\n", mysqli_stmt_affected_rows($stmt));
+    mysqli_stmt_close($stmt);
+}
 echo "Escribido";
 ?>
