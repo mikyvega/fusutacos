@@ -2,7 +2,7 @@
 $host = 'fusutaqueria.mysql.database.azure.com';
 $username = 'myadmin';
 $password = 'Maistro3003$';
-$db_name = 'ProyectoFinal';
+$db_name = 'fusutaqueria';
 
 echo "Declaraciones de variables";
 
