@@ -17,7 +17,7 @@ if (mysqli_connect_errno($conn)) {
 }
 
 //Create an Insert prepared statement and run it
-$escrito=trim($_POST['comentario']);
+$escrito = $_POST['comentario'];
 echo "Vamos al query";
 if ($stmt = mysqli_prepare($conn, "INSERT INTO comentarios (Comentario) VALUES (?)")) {
     echo "Aqui esta en el prepare";
