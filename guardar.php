@@ -23,7 +23,7 @@ $escrito = htmlspecialchars($_POST['comentario']);
 if ($stmt = mysqli_prepare($conn, "INSERT INTO comentarios (Comentario) VALUES ('$escrito')"))
 {
     echo "Escribiendo... ";
-    mysqli_stmt_bind_param($stmt, '$escrito');
+    mysqli_stmt_bind_param($stmt, 'ssd', mixed &$escrito);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     echo "Saliendo... ";
