@@ -22,9 +22,11 @@ echo htmlspecialchars($_POST['comentario']);
 $escrito=trim($_POST['comentario']);
 echo "Vamos al query";
 $sql="INSERT INTO comentarios (Comentario) VALUES (?)";
-if(mysqli_prepare($conn,$sql))
+if($stmt = mysqli_prepare($conn,$sql))
 {
+    mysqli_stmt_execute($stmt);
     echo "Funciono";
+    mysqli_stmt_close($stmt);
 }
 echo "Escribido";
 mysqli_close($conn);
