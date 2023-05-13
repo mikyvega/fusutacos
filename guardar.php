@@ -18,9 +18,9 @@ if (mysqli_connect_errno())
 {
     die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
-echo "Vamos al query";
+echo "Vamos al query ";
 $escrito = htmlspecialchars($_POST['comentario']);
-if ($stmt = mysqli_prepare($conn, "INSERT INTO comentarios (Comentario) VALUES (?)"))
+if ($stmt = mysqli_prepare($conn, "INSERT INTO comentarios (Comentario) VALUES ('$escrito')"))
 {
     echo "Escribiendo... ";
     mysqli_stmt_bind_param($stmt, '$escrito');
