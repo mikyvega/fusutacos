@@ -12,12 +12,12 @@ echo "Inicializacion";
 mysqli_real_connect($conn, $host, $username, $password, $db_name);
 echo "Connecion Correcta";
 if (mysqli_connect_errno($conn)) {
-    echo 'Failed to connect to MySQL: '.mysqli_connect_error();
+    echo "Failed to connect to MySQL";
     die('Failed to connect to MySQL: '.mysqli_connect_error());    
 }
 
 //Create an Insert prepared statement and run it
-
+echo htmlspecialchars($_POST['comentario']);
 echo "Vamos al query";
 if ($stmt = mysqli_prepare($conn, "INSERT INTO comentarios (Comentario) VALUES (?)")) {
     echo "Aqui esta en el prepare";
