@@ -30,7 +30,7 @@ while ($row = mysqli_fetch_assoc($res))
 if ($stmt = mysqli_prepare($conn, "INSERT INTO comentarios (Comentario) VALUES (?)"))
 {
    echo "Escribiendo... ";
-   mysqli_stmt_bind_param($stmt, 'ssd', $escrito);
+   mysqli_stmt_bind_param($stmt, 's', $escrito);
    echo "Paso 1 complete";
    mysqli_stmt_execute($stmt);
    echo "Paso 2 complete";
