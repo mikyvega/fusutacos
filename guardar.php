@@ -20,10 +20,17 @@ if (mysqli_connect_errno())
 }
 echo "Vamos al query ";
 $escrito = htmlspecialchars($_POST['comentario']);
+printf("Reading data from table: \n");
+$res = mysqli_query($conn, 'SELECT * FROM comentarios');
+while ($row = mysqli_fetch_assoc($res))
+ {
+    var_dump($row);
+ }
+ echo "leida la tabla";
 if ($stmt = mysqli_prepare($conn, "INSERT INTO comentarios (Comentario) VALUES (?)"))
 {
    echo "Escribiendo... ";
-   mysqli_stmt_bind_param(mysqli_stmt $stmt,string $types, mixed &$escrito,)
+   mysqli_stmt_bind_param($stmt, 'ssd', $escrito);
    echo "Paso 1 complete";
    mysqli_stmt_execute($stmt);
    echo "Paso 2 complete";
