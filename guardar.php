@@ -18,15 +18,15 @@ if (mysqli_connect_errno($conn)) {
 
 //Create an Insert prepared statement and run it
 $escrito=trim($_POST['comentario']);
-echo $escrito
-echo "Vamos al query"
+echo $escrito;
+echo "Vamos al query";
 if ($stmt = mysqli_prepare($conn, "INSERT INTO comentarios (Comentario) VALUES (?)")) {
     mysqli_stmt_bind_param($stmt, 'ssd', $escrito);
     mysqli_stmt_execute($stmt);
     printf("Insert: Affected %d rows\n", mysqli_stmt_affected_rows($stmt));
     mysqli_stmt_close($stmt);
 }
-echo "Escribido"
+echo "Escribido";
 // Close the connection
 mysqli_close($conn);
 ?>
