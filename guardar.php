@@ -4,11 +4,11 @@ $username = 'myadmin';
 $password = 'Maistro3003$';
 $db_name = 'fusutaqueria';
 
-echo "Declaraciones de variables";
+echo "Declaraciones de variables ";
 
 //Establishes the connection
 $conn = mysqli_init();
-echo "Inicializacion";
+echo "Inicializacion...";
 mysqli_real_connect($conn, $host, $username, $password, $db_name);
 echo "Connecion Correcta";
 if (mysqli_connect_errno($conn)) {
