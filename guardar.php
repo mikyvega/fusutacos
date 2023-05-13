@@ -9,7 +9,9 @@ echo "Declaraciones de variables";
 //Establishes the connection
 $conn = mysqli_init();
 echo "Inicializacion";
-mysqli_real_connect($conn, $host, $username, $password, $db_name);
+mysqli_ssl_set($con,NULL,NULL, "C:\Users\vegaa\Downloads\DigiCertGlobalRootCA.crt.pem", NULL, NULL);
+//mysqli_real_connect($conn, 'mydemoserver.mysql.database.azure.com', 'myadmin@mydemoserver', 'yourpassword', 'quickstartdb', 3306, NULL, MYSQLI_CLIENT_SSL)  
+mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306,MYSQLI_CLIENT_SSL);
 echo "Connecion Correcta";
 if (mysqli_connect_errno($conn)) {
     echo "Failed to connect to MySQL";
